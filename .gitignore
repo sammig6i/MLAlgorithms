@@ -5,3 +5,4 @@ mla.egg-info/
 .cache
 *.swp
 .idea
+.DS_Store

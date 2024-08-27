@@ -1,5 +1,6 @@
 import numpy as np
 from sklearn.datasets import make_blobs
+import os
 
 from mla.kmeans import KMeans
 
@@ -12,8 +13,10 @@ def kmeans_example(plot=False):
     k.predict()
 
     if plot:
-        k.plot()
-
+        save_dir = '/var/app/'
+        save_path = os.path.join(save_dir, 'kmeans.PNG')
+        k.plot(save_path=save_path)
 
 if __name__ == "__main__":
     kmeans_example(plot=True)
+

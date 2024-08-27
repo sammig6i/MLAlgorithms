@@ -131,8 +131,8 @@ class KMeans(BaseEstimator):
             distance += euclidean_distance(centroids_old[i], centroids[i])
         return distance == 0
 
-    def plot(self, ax=None, holdon=False):
-        sns.set(style="white")
+    def plot(self, ax=None, holdon=False, save_path=None):
+        sns.set_theme(style="white")
         palette = sns.color_palette("hls", self.K + 1)
         data = self.X
 
@@ -145,6 +145,7 @@ class KMeans(BaseEstimator):
 
         for point in self.centroids:
             ax.scatter(*point, marker="x", linewidths=10)
-
+        if save_path:
+                plt.savefig(save_path)
         if not holdon:
             plt.show()
